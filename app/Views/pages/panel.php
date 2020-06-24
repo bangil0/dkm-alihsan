@@ -22,11 +22,11 @@
               <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1">Rp</span>
               </div>
-              <input type="number" class="form-control" required autofocus min="1">
+              <input type="number" name="u_money" class="form-control" required autofocus min="1">
             </div>
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-success">Simpan</button>
+          <button type="submit" name="add" class="btn btn-success">Simpan</button>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
           </form>
         </div>
@@ -50,7 +50,7 @@
               <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1">Rp</span>
               </div>
-              <input type="number" class="form-control" id="edit-field" required autofocus>
+              <input type="number" name="u_money" class="form-control" id="edit-field" required autofocus>
             </div>
         </div>
         <div class="modal-footer">
@@ -82,15 +82,22 @@
       </div>
     </div>
   </div>
+  <?php if (session()->getFlashData('success')) : ?>
   <div class="alert alert-success">
-    Data berhasil ditambahkan
+    <?= session()->getFlashdata('success'); ?>
   </div>
+  <?php endif; ?>
+  <?php if (session()->getFlashdata('update')) : ?>
   <div class="alert alert-warning">
-    Data berhasil diperbaharui
+    <?= session()->getFlashdata('update'); ?>
   </div>
+  <?php endif; ?>
+  <?php if (session()->getFlashdata('delete')) : ?>
   <div class="alert alert-danger">
-    Data berhasil dihapus
+    <?= session()->getFlashdata('delete'); ?>
   </div>
+  <?php endif; ?>
+
   <table class="table table-bordered">
     <thead class="thead-light">
       <tr>
