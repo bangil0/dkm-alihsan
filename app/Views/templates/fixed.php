@@ -7,26 +7,155 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <script>
     function idformat(date_string) {
-      var date    = date_string;
-      var dateAr  = date.split("-");
+      var date = date_string;
+      var dateAr = date.split("-");
       var tanggal = dateAr[2];
-      var bulan   = "";
+      var bulan = "";
       switch (dateAr[1]) {
-        case "01" : bulan = "Januari"; break;
-        case "02" : bulan = "Februari"; break;
-        case "03" : bulan = "Maret"; break;
-        case "04" : bulan = "April"; break;
-        case "05" : bulan = "Mei"; break;
-        case "06" : bulan = "Juni"; break;
-        case "07" : bulan = "Juli"; break;
-        case "08" : bulan = "Agustus"; break;
-        case "09" : bulan = "September"; break;
-        case "10" : bulan = "Oktober"; break;
-        case "11" : bulan = "November"; break;
-        case "12" : bulan = "Desember"; break;
+        case "01":
+          bulan = "Januari";
+          break;
+        case "02":
+          bulan = "Februari";
+          break;
+        case "03":
+          bulan = "Maret";
+          break;
+        case "04":
+          bulan = "April";
+          break;
+        case "05":
+          bulan = "Mei";
+          break;
+        case "06":
+          bulan = "Juni";
+          break;
+        case "07":
+          bulan = "Juli";
+          break;
+        case "08":
+          bulan = "Agustus";
+          break;
+        case "09":
+          bulan = "September";
+          break;
+        case "10":
+          bulan = "Oktober";
+          break;
+        case "11":
+          bulan = "November";
+          break;
+        case "12":
+          bulan = "Desember";
+          break;
       };
       var tahun = dateAr[0];
       document.write(tanggal + " " + bulan + " " + tahun);
+    }
+
+    function idbulan2(month_code) {
+      switch (month_code) {
+        case "01":
+          bulan = "Januari";
+          break;
+        case "02":
+          bulan = "Februari";
+          break;
+        case "03":
+          bulan = "Maret";
+          break;
+        case "04":
+          bulan = "April";
+          break;
+        case "05":
+          bulan = "Mei";
+          break;
+        case "06":
+          bulan = "Juni";
+          break;
+        case "07":
+          bulan = "Juli";
+          break;
+        case "08":
+          bulan = "Agustus";
+          break;
+        case "09":
+          bulan = "September";
+          break;
+        case "10":
+          bulan = "Oktober";
+          break;
+        case "11":
+          bulan = "November";
+          break;
+        case "12":
+          bulan = "Desember";
+          break;
+      }
+      return bulan;
+    }
+
+    function idbulan(month_code) {
+      switch (month_code) {
+        case "01":
+          bulan = "Januari";
+          break;
+        case "02":
+          bulan = "Februari";
+          break;
+        case "03":
+          bulan = "Maret";
+          break;
+        case "04":
+          bulan = "April";
+          break;
+        case "05":
+          bulan = "Mei";
+          break;
+        case "06":
+          bulan = "Juni";
+          break;
+        case "07":
+          bulan = "Juli";
+          break;
+        case "08":
+          bulan = "Agustus";
+          break;
+        case "09":
+          bulan = "September";
+          break;
+        case "10":
+          bulan = "Oktober";
+          break;
+        case "11":
+          bulan = "November";
+          break;
+        case "12":
+          bulan = "Desember";
+          break;
+        default:
+          bulan = new Date().getMonth();
+          bulan = bulan < 9 ? "0" + (bulan + 1) : bulan + 1;
+          bulan = idbulan2(bulan);
+          break;
+      };
+      document.write(bulan);
+    }
+
+    function getQueryVariable(variable) {
+      var query = window.location.search.substring(1);
+      var vars = query.split("&");
+      for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split("=");
+        if (pair[0] == variable) {
+          return pair[1];
+        }
+      }
+      if (variable == "year") {
+        return new Date().getFullYear();
+      } else {
+        return new Date().getMonth();
+      }
     }
   </script>
   <!-- Bootstrap CSS -->
@@ -81,9 +210,9 @@
     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
   </script>
   <script>
-    $('.table .btn-danger').on('click', function(){
-      var id   = $(this).attr('data-id');
-      var url  = "/infaq/delete/" + id;
+    $('.table .btn-danger').on('click', function () {
+      var id = $(this).attr('data-id');
+      var url = "/infaq/delete/" + id;
       var date = $(this).attr('data-date');
       var money = $(this).attr('data-money');
       var warning = "Hapus data tanggal " + date + " dengan nominal " + money + " ?";
@@ -91,13 +220,13 @@
       $('#data-warning').html(warning);
     });
 
-    $('.table .btn-warning').on('click', function(){
+    $('.table .btn-warning').on('click', function () {
       var id = $(this).attr('data-id');
       var money = $(this).attr('data-money');
       $('#edit-field').val(money);
     })
   </script>
-  
+
 </body>
 
 </html>

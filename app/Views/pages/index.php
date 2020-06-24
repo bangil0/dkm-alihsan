@@ -10,24 +10,35 @@
 </div>
 
 <hr>
-<div class="container mt-5">
+<div class="container mt-5" id="infaq">
   <div class="row">
     <div class="col-sm-6">
       <h3>Infaq
-        <div class="font-weight-normal badge badge-success shadow">Bulan Juli</div>
-        <div class="font-weight-normal badge badge-info shadow">2020</div>
+        <div class="font-weight-normal badge badge-success shadow"><script>if (getQueryVariable('month')) { idbulan(getQueryVariable('month')); }</script></div>
+        <div class="font-weight-normal badge badge-info shadow"><?php ?></div>
       </h3>
     </div>
     <div class="col-sm-6 text-right">
-      <select class="custom-select w-auto">
-        <option value="">Januari</option>
-        <option value="">Februari</option>
-        <option value="">Maret</option>
+      <select class="custom-select w-auto" onchange="window.location.href = '/?month='+ this.value +'&year='+ getQueryVariable('year') + '#infaq'">
+        <option value="">Bulan</option>
+        <option value="01">Januari</option>
+        <option value="02">Februari</option>
+        <option value="03">Maret</option>
+        <option value="04">April</option>
+        <option value="05">Mei</option>
+        <option value="06">Juni</option>
+        <option value="07">Juli</option>
+        <option value="08">Agustus</option>
+        <option value="09">September</option>
+        <option value="10">Oktober</option>
+        <option value="11">November</option>
+        <option value="12">Desember</option>
       </select>
-      <select class="custom-select w-auto">
-        <option value="">2020</option>
-        <option value="">2021</option>
-        <option value="">2022</option>
+      <select class="custom-select w-auto" onchange="window.location.href = '/?month='+ getQueryVariable('month') +'&year='+ this.value + '#infaq'">
+        <option value="">Tahun</option>
+        <option value="2020">2020</option>
+        <option value="2021">2021</option>
+        <option value="2022">2022</option>
       </select>
     </div>
   </div>
@@ -41,11 +52,12 @@
       </tr>
     </thead>
     <tbody>
+      <?php foreach ($infaq as $inf) : ?>
       <tr>
-        <td>1 Juli 2020</td>
-        <td>Rp15.000</td>
+        <td><script>idformat("<?= $inf['date']; ?>")</script></td>
+        <td><?= $inf['money']; ?></td>
       </tr>
-
+      <?php endforeach; ?>
     </tbody>
   </table>
 </div>

@@ -1,7 +1,7 @@
 <?php namespace App\Controllers;
 use App\Controllers\BaseController;
-use App\Models\UserModel;
 use App\Models\InfaqModel;
+use App\Models\UserModel;
 
 class User extends BaseController {
   public function __construct() {
@@ -9,8 +9,11 @@ class User extends BaseController {
     $this->infaqmodel = new InfaqModel();
   }
 
-  public function index($month = false, $year = false) {
+  public function index() {
+    $month = ($this->request->getGet('month')) ? $this->request->getGet('month') : date("m");
+    $year = ($this->request->getGet('year')) ? $this->request->getGet('year') : date("Y");
     $data = [
+      "infaq" => $this->infaqmodel->like("date", "$year-$month")->paginate(4),
       "title" => 'DKM Al-Ihsan SMAN 1 Ciwidey'
     ];
     return view('/pages/index', $data);
