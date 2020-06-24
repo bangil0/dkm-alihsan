@@ -2,8 +2,7 @@
 <?= $this->section('content'); ?>
 <div class="section container" style="margin-top: 75px;">
   <h3 class="d-flex justify-content-between">Dashboard
-    <a href="#" class="btn btn-success shadow" data-toggle="modal" data-target="#add"><i class="fa fa-plus"></i>
-      Tambah</a>
+    <a href="#" class="btn btn-success shadow" data-toggle="modal" data-target="#add"><i class="fa fa-plus"></i> Tambah</a>
   </h3>
   <hr>
   <!-- Modal -->

@@ -1,6 +1,12 @@
 <?php namespace App\Controllers;
 use App\Controllers\BaseController;
+use App\Models\UserModel;
+
 class User extends BaseController {
+  public function __construct() {
+    $this->usermodel = new UserModel();
+  }
+
   public function index($month = false, $year = false) {
     $data = [
       "title" => 'DKM Al-Ihsan SMAN 1 Ciwidey'
@@ -15,7 +21,29 @@ class User extends BaseController {
     return view('/pages/login', $data);
   }
 
+  public function loginprocess() {
+    $u_name = $this->request->getVar('u_name');
+    $u_pass = $this->request->getVar('u_pass');
+    $userdata = $this->usermodel->asArray()->where(['user' => $u_name, 'pass' => $u_pass])->first();
+    if (!empty($userdata)) {
+      session()->set('user', $u_name);
+      return redirect()->to('/panel');
+    } else {
+      session()->setFlashdata('pesan', 'Username atau password salah!');
+      $data = [
+        "title" => "Login gagal!"
+      ];
+      return view('pages/login', $data);
+    }
+  }
+
   public function panel() {
+    if (!session()->get('user')) {
+      $data = [
+        "title" => "Login"
+      ];
+      return redirect()->to('/login');
+    }
     $data = [
       "title" => "Panel Admin"
     ];
@@ -23,7 +51,8 @@ class User extends BaseController {
   }
 
   public function logout() {
-    
+    session()->remove('user');
+    return redirect()->to('/');
   }
 
 }
