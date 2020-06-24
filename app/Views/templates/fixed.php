@@ -20,6 +20,8 @@
 </head>
 
 <body>
+  <?= $this->include('navbar'); ?>
+  <?= $this->renderSection('content'); ?>
   <footer class="bg-dark text-light py-5">
     <div class="container">
       <div class="row">
