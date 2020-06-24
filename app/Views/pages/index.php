@@ -1,4 +1,4 @@
-<?= $this->extend('/templates/fixed'); ?>
+<?= $this->extend('templates/fixed'); ?>
 <?= $this->section('content'); ?>
 <div class="jumbotron jumbotron-fluid intro pt-5">
   <div class="container">

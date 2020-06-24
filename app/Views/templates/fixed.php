@@ -16,11 +16,11 @@
     rel="stylesheet">
   <!-- CSS Custom -->
   <link rel="stylesheet" href="custom.css">
-  <title>DKM Al-Ihsan</title>
+  <title><?= $title; ?></title>
 </head>
 
 <body>
-  <?= $this->include('navbar'); ?>
+  <?= $this->include('templates/navbar'); ?>
   <?= $this->renderSection('content'); ?>
   <footer class="bg-dark text-light py-5">
     <div class="container">
