@@ -108,6 +108,7 @@
       </tr>
     </thead>
     <tbody>
+      <?php if (!empty($infaq)) { ?>
       <?php foreach ($infaq as $inf) : ?>
       <tr>
         <td>
@@ -124,6 +125,11 @@
         </td>
       </tr>
       <?php endforeach; ?>
+      <?php } else { ?>
+      <tr>
+        <td colspan="3">Data tidak ada</td>
+      </tr>
+      <?php }; ?>
     </tbody>
   </table>
   <?= $pager->links('bootstrap', 'bootstrap_pagination'); ?>

@@ -52,12 +52,18 @@
       </tr>
     </thead>
     <tbody>
+      <?php if (!empty($infaq)) { ?>
       <?php foreach ($infaq as $inf) : ?>
       <tr>
         <td><script>idformat("<?= $inf['date']; ?>")</script></td>
         <td><?= $inf['money']; ?></td>
       </tr>
       <?php endforeach; ?>
+      <?php } else { ?>
+      <tr>
+        <td colspan="2">Data tidak ada</td>
+      </tr>
+      <?php }; ?>
     </tbody>
   </table>
 </div>
