@@ -4,5 +4,9 @@ use CodeIgniter\Model;
 class InfaqModel extends Model {
   protected $table = "infaq";
   protected $allowedFields = ['money', 'ip'];
+
+  public function getInfaq() {
+    return $this->orderBy('date', 'DESC')->paginate('4', 'bootstrap');
+  }
 }
 ?>

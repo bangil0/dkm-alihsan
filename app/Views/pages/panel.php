@@ -107,36 +107,25 @@
       </tr>
     </thead>
     <tbody>
+      <?php foreach ($infaq as $inf) : ?>
       <tr>
-        <td>1 Juli 2020</td>
-        <td>Rp645.000</td>
+        <td>
+          <script>
+            idformat("<?= $inf['date']; ?>")
+          </script>
+        </td>
+        <td><?= "Rp." . $inf['money'] ?></td>
         <td class="text-center">
           <div class="btn-group">
-            <button type="button" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#edit" data-id="5"
-              data-date="5 Juli 2020" data-money="90000"><i class="fa fa-pencil fa-fw"></i></button>
-            <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete" data-id="5"
-              data-date="5 Juli 2020" data-money="90000"><i class="fa fa-trash  fa-fw"></i></button>
+            <button type="button" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#edit" data-id="<?= $inf['id']; ?>" data-money="<?= $inf['money']; ?>"><i class="fa fa-pencil fa-fw"></i></button>
+            <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete" data-id="<?= $inf['id']; ?>" data-money="<?= $inf['money']; ?>"><i class="fa fa-trash fa-fw"></i></button>
           </div>
         </td>
       </tr>
-
+      <?php endforeach; ?>
     </tbody>
   </table>
-  <nav class="justify-content-center d-flex">
-    <ul class="pagination">
-      <li class="page-item disabled">
-        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-      </li>
-      <li class="page-item"><a class="page-link" href="#">1</a></li>
-      <li class="page-item active" aria-current="page">
-        <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
-      <li class="page-item">
-        <a class="page-link" href="#">Next</a>
-      </li>
-    </ul>
-  </nav>
+  <?= $pager->links('bootstrap', 'bootstrap_pagination'); ?>
 </div>
 
 <?= $this->endSection(); ?>

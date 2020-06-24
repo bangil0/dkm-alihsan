@@ -5,7 +5,30 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+  <script>
+    function idformat(date_string) {
+      var date    = date_string;
+      var dateAr  = date.split("-");
+      var tanggal = dateAr[2];
+      var bulan   = "";
+      switch (dateAr[1]) {
+        case "01" : bulan = "Januari"; break;
+        case "02" : bulan = "Februari"; break;
+        case "03" : bulan = "Maret"; break;
+        case "04" : bulan = "April"; break;
+        case "05" : bulan = "Mei"; break;
+        case "06" : bulan = "Juni"; break;
+        case "07" : bulan = "Juli"; break;
+        case "08" : bulan = "Agustus"; break;
+        case "09" : bulan = "September"; break;
+        case "10" : bulan = "Oktober"; break;
+        case "11" : bulan = "November"; break;
+        case "12" : bulan = "Desember"; break;
+      };
+      var tahun = dateAr[0];
+      document.write(tanggal + " " + bulan + " " + tahun);
+    }
+  </script>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -74,6 +97,7 @@
       $('#edit-field').val(money);
     })
   </script>
+  
 </body>
 
 </html>

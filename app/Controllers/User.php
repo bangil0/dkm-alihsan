@@ -1,10 +1,12 @@
 <?php namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\UserModel;
+use App\Models\InfaqModel;
 
 class User extends BaseController {
   public function __construct() {
     $this->usermodel = new UserModel();
+    $this->infaqmodel = new InfaqModel();
   }
 
   public function index($month = false, $year = false) {
@@ -45,8 +47,11 @@ class User extends BaseController {
       return redirect()->to('/login');
     }
     $data = [
+      "infaq" => $this->infaqmodel->getInfaq(),
+      "pager" => $this->infaqmodel->pager,
       "title" => "Panel Admin"
     ];
+
     return view('/pages/panel', $data);
   }
 
