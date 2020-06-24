@@ -5,8 +5,10 @@
     <a href="/login" class="btn btn-normal border-secondary">Log in</a>
     <?php endif; ?>
     <?php if (session()->get('user')) : ?>
+    <div class="btn-group">
     <a href="/logout" class="btn btn-normal border-secondary">Log out</a>
     <a href="/panel" class="btn btn-normal border-secondary">Panel</a>
+    </div>
     <?php endif; ?>
     <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
       <span class="navbar-toggler-icon"></span>
