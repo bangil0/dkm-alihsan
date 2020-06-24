@@ -18,5 +18,18 @@ class Infaq extends Controller {
       return redirect()->to("/panel");
     }
   }
+
+  public function edit() {
+    $money = $this->request->getVar('u_money');
+    $id    = $this->request->getVar('u_id');
+    $ip    = $this->request->getIPAddress();
+    $data = [
+      "money" => $money,
+      "ip"    => $ip
+    ];
+    $this->infaqmodel->editInfaq($data, $id);
+    session()->setFlashdata('edit', 'Data berhasil di update');
+    return redirect()->to('/panel');
+  }
 }
 ?>

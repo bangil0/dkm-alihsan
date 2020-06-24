@@ -223,6 +223,7 @@
     $('.table .btn-warning').on('click', function () {
       var id = $(this).attr('data-id');
       var money = $(this).attr('data-money');
+      $('#edit-id').val(id);
       $('#edit-field').val(money);
     })
   </script>

@@ -44,17 +44,18 @@
           </button>
         </div>
         <div class="modal-body">
-          <form action="/infaq/add" method="post">
+          <form action="/infaq/edit" method="post">
             <label for="">Jumlah Nominal</label>
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1">Rp</span>
               </div>
+              <input type="hidden" name="u_id" value="" id="edit-id">
               <input type="number" name="u_money" class="form-control" id="edit-field" required autofocus>
             </div>
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-primary">Simpan</button>
+          <button type="submit" name="edit" class="btn btn-primary">Simpan</button>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
           </form>
         </div>
@@ -87,9 +88,9 @@
     <?= session()->getFlashdata('success'); ?>
   </div>
   <?php endif; ?>
-  <?php if (session()->getFlashdata('update')) : ?>
+  <?php if (session()->getFlashdata('edit')) : ?>
   <div class="alert alert-warning">
-    <?= session()->getFlashdata('update'); ?>
+    <?= session()->getFlashdata('edit'); ?>
   </div>
   <?php endif; ?>
   <?php if (session()->getFlashdata('delete')) : ?>

@@ -8,5 +8,9 @@ class InfaqModel extends Model {
   public function getInfaq() {
     return $this->orderBy('date', 'DESC')->paginate('4', 'bootstrap');
   }
+
+  public function editInfaq($data, $id) {
+    return $this->db->table($this->table)->update($data, ['id' => $id]);
+  }
 }
 ?>
