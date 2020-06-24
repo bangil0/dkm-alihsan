@@ -215,7 +215,7 @@
       var url = "/infaq/delete/" + id;
       var date = $(this).attr('data-date');
       var money = $(this).attr('data-money');
-      var warning = "Hapus data tanggal " + date + " dengan nominal " + money + " ?";
+      var warning = "Hapus data dengan nominal " + money + " ?";
       $('#hapus-btn').attr('href', url);
       $('#data-warning').html(warning);
     });

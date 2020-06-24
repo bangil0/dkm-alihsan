@@ -31,5 +31,11 @@ class Infaq extends Controller {
     session()->setFlashdata('edit', 'Data berhasil di update');
     return redirect()->to('/panel');
   }
+
+  public function delete($id) {
+    $this->infaqmodel->delete(['id' => $id]);
+    session()->setFlashdata('delete', 'Data berhasil dihapus');
+    return redirect()->to('/panel');
+  }
 }
 ?>
