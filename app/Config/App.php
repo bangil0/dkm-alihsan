@@ -21,7 +21,7 @@ class App extends BaseConfig
 	| environments.
 	|
 	*/
-	public $baseURL = 'http://localhost:8080/';
+	public $baseURL = 'http://dkm-alihsan.v1d4yy.heliohost.org/cgi-bin/public/';
 
 	/*
 	|--------------------------------------------------------------------------
