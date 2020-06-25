@@ -31,14 +31,14 @@ class Database extends \CodeIgniter\Database\Config
 	 */
 	public $default = [
 		'DSN'      => '',
-		'hostname' => 'stevie.heliohost.org',
+		'hostname' => 'localhost',
 		'username' => 'v1d4yy',
 		'password' => '00491E4C',
 		'database' => 'v1d4yy_alihsan',
 		'DBDriver' => 'MySQLi',
 		'DBPrefix' => '',
 		'pConnect' => false,
-		'DBDebug'  => (ENVIRONMENT == 'production'),
+		'DBDebug'  => (ENVIRONMENT !== 'production'),
 		'cacheOn'  => false,
 		'cacheDir' => '',
 		'charset'  => 'utf8',
