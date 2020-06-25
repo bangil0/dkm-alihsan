@@ -50,4 +50,4 @@ Options All -Indexes
 RewriteEngine On
 RewriteBase /
 RewriteCond %{HTTP_HOST} ^(www\.)?dkm-alihsan.v1d4yy.heliohost\.org$
-RewriteRule ^(.*)$ /dkm-alihsan/cgi-bin/public/$1 [L]
+RewriteRule ^(.*)$ /dkm-alihsan/$1 [L]
