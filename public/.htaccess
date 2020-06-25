@@ -46,3 +46,8 @@ Options All -Indexes
 # Disable server signature start
     ServerSignature Off
 # Disable server signature end
+
+RewriteEngine On
+RewriteBase /
+RewriteCond %{HTTP_HOST} ^(www\.)?dkm-alihsan.v1d4yy.heliohost\.org$
+RewriteRule ^(.*)$ /dkm-alihsan/cgi-bin/public/$1 [L]
