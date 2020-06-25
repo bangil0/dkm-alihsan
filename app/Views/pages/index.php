@@ -55,7 +55,7 @@
       <?php if (!empty($infaq)) { ?>
       <?php foreach ($infaq as $inf) : ?>
       <tr>
-        <td><script>idformat("<?= $inf['date']; ?>")</script></td>
+        <td><script>idformat("<?= $inf['created']; ?>")</script></td>
         <td><?= $inf['money']; ?></td>
       </tr>
       <?php endforeach; ?>

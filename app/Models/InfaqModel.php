@@ -6,7 +6,7 @@ class InfaqModel extends Model {
   protected $allowedFields = ['money', 'ip'];
 
   public function getInfaq() {
-    return $this->orderBy('date', 'DESC')->paginate('4', 'bootstrap');
+    return $this->orderBy('created', 'DESC')->paginate('4', 'bootstrap');
   }
 
   public function editInfaq($data, $id) {

@@ -113,7 +113,7 @@
       <tr>
         <td>
           <script>
-            idformat("<?= $inf['date']; ?>")
+            idformat("<?= $inf['created']; ?>")
           </script>
         </td>
         <td><?= "Rp." . $inf['money'] ?></td>

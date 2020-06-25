@@ -31,10 +31,10 @@ class Database extends \CodeIgniter\Database\Config
 	 */
 	public $default = [
 		'DSN'      => '',
-		'hostname' => 'localhost',
-		'username' => '',
+		'hostname' => 'localhost:3306',
+		'username' => 'root',
 		'password' => '',
-		'database' => '',
+		'database' => 'ci_dkm_alihsan',
 		'DBDriver' => 'MySQLi',
 		'DBPrefix' => '',
 		'pConnect' => false,
